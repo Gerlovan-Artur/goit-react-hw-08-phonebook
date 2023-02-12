@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'components/redux/operations';
 import { MdClose } from 'react-icons/md';
@@ -18,4 +19,14 @@ export const ContactItem = ({ contact: { name, number, id } }) => {
       </p>
     </>
   );
+};
+
+ContactItem.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }),
+  ),
 };
